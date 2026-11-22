@@ -35,6 +35,10 @@ Sources and their licences:
   under CC BY 4.0" and "Data from Everloot (https://everloot.app), CC BY-SA 4.0". CC BY-SA 4.0
   material may be shared under GPL v3 (Creative Commons' compatibility list); the Drop Tables data
   itself stays under CC BY-SA 4.0. The Drop Tables addon's code is not used.
+- Zone borders (zbord, abord, agrid) are worked out from the WoW Forever client's own terrain files
+  (each ADT map chunk's area ID), read by file ID from wago.tools for the client build. The way the
+  terrain is read follows OpenMap's tools (MIT, Copyright (c) 2026 OpenMap contributors,
+  https://github.com/openmap-world/openmap); no OpenMap code or data is copied.
 - WoW Forever in-game recordings (Command Center's recorder).
 
 Wowhead is not scraped by this project.

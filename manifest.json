@@ -1,8 +1,10 @@
 {
  "build": "2026-11-22",
- "chainPrereqs": 155,
+ "chainPrereqs": 156,
  "counts": {
+  "abord": 833,
   "ach": 493,
+  "agrid": 6,
   "area": 1404,
   "bpet": 122,
   "crit": 3371,
@@ -15,7 +17,7 @@
   "explore": 43,
   "fcost": 0,
   "fish": 0,
-  "gold": 1117,
+  "gold": 1191,
   "hol": 23,
   "idrop": 2750,
   "ieff": 9026,
@@ -34,7 +36,7 @@
   "oskill": 0,
   "ptl": 0,
   "qe": 5998,
-  "qg": 5670,
+  "qg": 5671,
   "qinfo": 187,
   "qmiss": 0,
   "qrep": 0,
@@ -46,13 +48,13 @@
   "qx": 6080,
   "rare": 0,
   "resp": 0,
-  "rew": 3199,
-  "seen": 1785,
+  "rew": 3200,
+  "seen": 1896,
   "seff": 3931,
   "skin": 21,
   "sla": 7390,
   "spf": 28,
-  "spm": 4746,
+  "spm": 4840,
   "spw": 15877,
   "spz": 16529,
   "start": 822,
@@ -67,16 +69,17 @@
   "vp": 24,
   "wmo": 1081,
   "world": 3136,
+  "zbord": 58,
   "zsub": 0
  },
  "dropTables": {
-  "built": 1795125896,
-  "kills": 34129,
-  "mobs": 1741,
-  "submissions": 4
+  "built": 1795336268,
+  "kills": 36539,
+  "mobs": 1857,
+  "submissions": 5
  },
  "fixes": 7,
- "hash": "ebbadd7c63706394",
+ "hash": "efe4f0dc7b0c6e61",
  "recorded": {
   "questRewardsFromGame": 161
  },
@@ -86,7 +89,7 @@
    "forever": true,
    "licence": "GPL-3.0 (see LICENSE-DATA.txt)",
    "name": "questie",
-   "ref": "9921e9b",
+   "ref": "e3c3bc4",
    "repo": "Questie/QuestieDB",
    "title": "QuestieDB (WoW Forever)"
   },
@@ -124,7 +127,7 @@
    "forever": true,
    "licence": "MIT",
    "name": "att",
-   "ref": "3b00997",
+   "ref": "84596b1",
    "repo": "ATTWoWAddon/AllTheThings",
    "title": "AllTheThings (WoW Forever database)"
   },
@@ -132,7 +135,7 @@
    "forever": true,
    "licence": "GPL-3.0-or-later",
    "name": "legacy",
-   "ref": "6ecd93e",
+   "ref": "bad9cd2",
    "repo": "cjber/legacy-forever",
    "title": "LegacyForever"
   },
@@ -140,7 +143,7 @@
    "forever": true,
    "licence": "GPL-3.0-or-later",
    "name": "spf",
-   "ref": "f481b8a",
+   "ref": "eb5cf8c",
    "repo": "cjber/shortest-path-forever",
    "title": "Shortest Path Forever"
   },
@@ -148,9 +151,17 @@
    "forever": true,
    "licence": "CC BY-SA 4.0 (data; includes Blackthornes Farmer MIT, EG Link CC BY 4.0, Everloot CC BY-SA 4.0)",
    "name": "droptables",
-   "ref": "a3df896",
+   "ref": "360a146",
    "repo": "valcheffnet/DropTables",
    "title": "Drop Tables (WoW Forever loot counts)"
+  },
+  {
+   "forever": true,
+   "licence": "game data; method after OpenMap (MIT)",
+   "name": "terrain",
+   "ref": "",
+   "repo": "wago.tools (client files by file ID)",
+   "title": "WoW Forever client terrain (zone borders)"
   }
  ],
  "sources": "WoW Forever client tables + AllTheThings + QuestieDB (Forever) + VMaNGOS + cMaNGOS classic-db + pfQuest + LegacyForever + Shortest Path Forever, cross-checked, + Drop Tables + WoW Forever in-game recordings"
