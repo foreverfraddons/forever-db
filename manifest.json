@@ -47,7 +47,7 @@
   "qsp": 145,
   "qsrc": 46,
   "qtext": 6036,
-  "quest": 6320,
+  "quest": 6327,
   "qwk": 99,
   "qx": 6084,
   "rare": 1,
@@ -87,7 +87,7 @@
   "submissions": 10
  },
  "fixes": 7,
- "hash": "6405c9163c0d2954",
+ "hash": "6585af2bbe259ff1",
  "recorded": {
   "newSpawns": 2,
   "questRewardsFromGame": 226
@@ -136,7 +136,7 @@
    "forever": true,
    "licence": "MIT",
    "name": "att",
-   "ref": "7f426e7",
+   "ref": "3392c41",
    "repo": "ATTWoWAddon/AllTheThings",
    "title": "AllTheThings (WoW Forever database)"
   },
@@ -152,7 +152,7 @@
    "forever": true,
    "licence": "GPL-3.0-or-later",
    "name": "spf",
-   "ref": "819d0da",
+   "ref": "088b280",
    "repo": "cjber/shortest-path-forever",
    "title": "Shortest Path Forever"
   },
