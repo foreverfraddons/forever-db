@@ -8,7 +8,7 @@ A World of Warcraft: Forever database that rebuilds itself and feeds any number 
 |---|---|---|
 | WoW Forever client tables (wago.tools CSV exports, shipped by AllTheThings) | Exact game data: every item (name, quality, item level, required level, class, slot, icon), flight masters, UI maps and their world bounds, zones, achievements and criteria, holidays, recipes/skill spells, item use effects, transmog sets, battle pets | Blizzard Entertainment's game data |
 | [AllTheThings](https://github.com/ATTWoWAddon/AllTheThings) (its WoW Forever database, run with `tools/att`) | Hand-curated Forever quests: givers, levels, positions on Forever's maps, rewards, vendors, drops | MIT |
-| [QuestieDB](https://github.com/Questie/QuestieDB) (Forever flavor + its Forever corrections) | The only open data with **WoW Forever** content: Forever-only quests, NPCs, items and objects, new zones (Zephras Isle, Riverglades, Mount Hyjal...), Forever map positions, links from player traces | GPL-3.0 (see LICENSE-DATA.txt) |
+| [QuestieDB](https://github.com/Questie/QuestieDB) (Forever flavor + its Forever corrections) | The only open data with **WoW Forever** content: Forever-only quests, NPCs, items and objects, new zones (Zephras Isle, Riverglades, Mount Hyjal...), Forever map positions, links from player traces, names and objective lines in 8 more languages | GPL-3.0 (see LICENSE-DATA.txt) |
 | [VMaNGOS](https://github.com/vmangos/core) nightly dump | Very accurate 1.12 drop rates, vendors, quests, spawns | GPL-2.0-or-later |
 | [cMaNGOS classic-db](https://github.com/cmangos/classic-db) | Same kinds of data, independently maintained | GPL-3.0 |
 | [pfQuest](https://github.com/shagu/pfQuest) | Drop rates, map positions, names in 9 languages | MIT |
@@ -72,7 +72,7 @@ The **ForeverDB** CurseForge package holds three LoadOnDemand addon folders:
 |---|---|---|
 | `ForeverDB` | `ForeverDB` | everything addons use: all entities and relations, quest details, the client tables, Legacy and travel data (drop lists capped at the best 40 sources per item) |
 | `ForeverDB_Full` | `ForeverDBFull` | uncapped drop/vendor/reward lists, every world and map position, and `src` (which source has each entry) |
-| `ForeverDB_Locales` | `ForeverDBLocale` | names in 9 languages: `loc[locale][npc/obj/item/quest][id]` |
+| `ForeverDB_Locales` | `ForeverDBLocale` | names in 9 languages: `loc[locale][npc/obj/item/quest][id]` (QuestieDB's Forever translations first, then pfQuest) |
 
 The **ForeverDB** addon is published on its own. Addons that use it list it as a required dependency on CurseForge, and the CurseForge app installs it for players. It is LoadOnDemand: an addon calls `C_AddOns.LoadAddOn("ForeverDB")`, then reads the global `ForeverDB`. Command Center does this.
 
@@ -136,7 +136,7 @@ Tables:
 | `legacy` / `lcrit` / `explore` | LegacyForever: challenge data, criterion locations, exploration areas |
 | `qtext` | `{quest: {d = details (the offer), o = objectives, p = progress ("have you got them?"), c = completion (turn-in text), e = end text, ot = {objective lines}, rec = 1 when recorded in game}}` quest dialog: what players recorded in WoW Forever (Questicus) wins, then QuestieDB's Forever objective lines, then VMaNGOS / cMaNGOS / pfQuest (ForeverDB_Full). Texts keep the game's $N / $C / $R / $B tokens |
 | `qgreet` | `{"c<npc>" / "o<object>": greeting}` the text above a quest giver's quest list (recorded in game, then MaNGOS) (ForeverDB_Full) |
-| `loc[lang].qtext` | quest details and objectives in 8 more languages (pfQuest) (ForeverDB_Locales) |
+| `loc[lang].qtext` | quest details and objectives in 8 more languages: QuestieDB's Forever objective lines win, pfQuest fills the rest field by field (ForeverDB_Locales) |
 | `zbord` | `{zone areaID: {c = continent mapID, ui = uiMapID, n = map chunks, w = {{x, y, x, y, ...}, ...} world-yard loops (outlines and holes), m = the same loops on the zone's map, 0-1000}}` zone borders from the WoW Forever client's own terrain (every ADT map chunk's area) |
 | `abord` | the same for every sub-zone (towns, camps, ...), plus `z` = its zone (ForeverDB_Full) |
 | `agrid` | `{continent: {o, c, z = {row: "zoneID*count,..."}}}` which zone each 33-yard map chunk belongs to (world X = o - (row + 0.5) * c, Y = o - (col + 0.5) * c), for point-in-zone lookups (ForeverDB_Full) |

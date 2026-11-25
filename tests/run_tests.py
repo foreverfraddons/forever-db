@@ -141,6 +141,10 @@ def main():
                       ("vmangos", {"qtext": {"1": {"o": "1.12 objectives", "d": "1.12 details", "c": "done"}}})])
     check("quest dialog: Forever objective text wins, the rest filled from MaNGOS",
           mq["qtext"]["1"] == {"o": "Forever objectives", "d": "1.12 details", "c": "done"})
+    ml, _ = _m.merge([("questie", {"loc": {"deDE": {"qtext": {"1": {"o": "Forever-Ziele"}}, "npc": {"5": "Forever-Name"}}}}),
+                      ("pfquest", {"loc": {"deDE": {"qtext": {"1": {"o": "1.12-Ziele", "d": "1.12-Details"}}, "npc": {"5": "1.12-Name"}}}})])
+    check("translated quest dialog: Forever objective text wins, the details filled from pfQuest",
+          ml["loc"]["deDE"]["qtext"]["1"] == {"o": "Forever-Ziele", "d": "1.12-Details"} and ml["loc"]["deDE"]["npc"]["5"] == "Forever-Name")
     qcol = os.path.join(tmp, "qtextcol"); os.makedirs(qcol)
     with open(os.path.join(qcol, "qrec-pc.lua"), "w", encoding="utf-8-sig") as f:
         f.write('QuesticusCollect = { ["qtext"] = { [5001] = { ["d"] = "Forever words, $N.", ["p"] = "Got them?", ["t"] = 5 } },'
@@ -202,6 +206,14 @@ def main():
         check("questie dynamic (per character) fixes skipped", qs["npc"]["101"][0] != "SHOULD NOT APPLY")
         check("questie spawn on Forever map", qs["spz"]["c99999"] == {"1429": [255, 402]})
         check("questie drop without rate", qs["drop"]["5523"] == [[100, 0]])
+        qde = qs.get("loc", {}).get("deDE", {})
+        check("questie translations: npc, quest and item names", qde.get("npc", {}).get("99999") == "Himmelsgeborener Späher"
+              and qde.get("quest", {}).get("50001") == "Muschelsuche")
+        check("questie translations: a trace wins over the base file", qde.get("npc", {}).get("101") == "Koboldtunnelgräber")
+        check("questie translations: an override replaces the item name",
+              qde.get("item", {}).get("5523") == "Kleine seepockenbesetzte Muschel")
+        check("questie translations: quest objective lines", qde.get("qtext", {}).get("50001") == {"o": "Sammelt 5 Muscheln. Kehrt zurück."})
+        check("questie translations: only locales with files", set(qs.get("loc", {})) == {"deDE"})
         check("pfquest rate per 10000", [100, 3000] in pf["drop"]["5523"])
         check("pfquest Classic map moved onto Forever map", pf["spz"]["c100"] == {"1412": [300, 400]})
         check("pfquest translations", pf["loc"]["deDE"]["npc"]["100"] == "Murlocräuber")
@@ -218,6 +230,7 @@ def main():
         check("merge: drop rate from sources with a rate", next(c for s, c in m["drop"]["5523"] if s == 100) > 0)
         check("merge: drop only pfQuest knows", any(s == 101 for s, _ in m["drop"]["5523"]))
         check("merge: source mask", m["src"]["npc"]["100"] & 1 == 1)
+        check("merge: the Forever translation wins over pfQuest's", m["loc"]["deDE"]["npc"]["100"] == "Murlocplünderer")
         check("merge report", rep["forever_only"]["npc"] >= 1 and "npc.minLv" in rep["conflicts"])
         check("report markdown", os.path.exists(os.path.join(tmp, "report.md")))
     # ---- AllTheThings preprocessor (Forever build: classic tags on, later expansions off)

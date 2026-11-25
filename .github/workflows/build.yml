@@ -71,9 +71,10 @@ jobs:
             git -C work/src/pfquest sparse-checkout set --no-cone '/db/*.lua' '/db/*/units.lua' '/db/*/objects.lua' '/db/*/items.lua' '/db/*/quests.lua' '/LICENSE'
             echo "REF_PFQUEST=$(git -C work/src/pfquest rev-parse --short HEAD)" >> "$GITHUB_ENV"
           else echo "::warning::pfQuest could not be fetched"; fi
-          # QuestieDB (GPL-3.0): WoW Forever data + Forever corrections + zone tables
+          # QuestieDB (GPL-3.0): WoW Forever data + Forever corrections + zone tables + translations
           if git clone -q --depth 1 --filter=blob:none --sparse https://github.com/Questie/QuestieDB.git work/src/questie; then
-            git -C work/src/questie sparse-checkout set --no-cone '/data/Forever/' '/src/corrections/' '/support/' '/LICENSE.md' '/gpl-3.0.md'
+            git -C work/src/questie sparse-checkout set --no-cone '/data/Forever/' '/src/corrections/' '/support/' '/l10n/Forever/' \
+              '/generator/l10n-inputs.lua' '/LICENSE.md' '/gpl-3.0.md'
             echo "REF_QUESTIE=$(git -C work/src/questie rev-parse --short HEAD)" >> "$GITHUB_ENV"
           else echo "::warning::QuestieDB could not be fetched"; fi
           # AllTheThings (MIT): its WoW Forever database sources + the Forever client tables (wago.tools CSV)

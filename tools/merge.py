@@ -225,7 +225,12 @@ def merge(sources):
             for t, names in tbls.items():
                 dst = L.setdefault(t, {})
                 for k, v in names.items():
-                    dst.setdefault(k, v)
+                    if isinstance(v, dict):         # quest dialog: field by field, like qtext
+                        e = dst.setdefault(k, {})
+                        for f, x in v.items():
+                            e.setdefault(f, x)
+                    else:
+                        dst.setdefault(k, v)
 
     rep["conflicts"] = dict(sorted(conflicts.items(), key=lambda kv: -kv[1]["count"]))
     rep["merged"] = {t: len(v) for t, v in out.items() if t not in ("loc", "src")}

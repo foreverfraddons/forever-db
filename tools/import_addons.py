@@ -200,6 +200,12 @@ def pfquest(p, a2u, coef):
             for sid, ch in lst:
                 best[sid] = max(best.get(sid, 0), ch)
             out[f][iid] = sorted(([s, c] for s, c in best.items()), key=lambda e: -e[1])
+    add_names(out, names)
+    return out, unmapped
+
+
+def add_names(out, names):
+    """names {locale: {units/objects/items/quests: {id: name}, qtext: {id: {d, o}}}} -> loc (and qtext for enUS)"""
     kinds = {"units": "npc", "objects": "obj", "items": "item", "quests": "quest"}
     for loc, tbls in names.items():
         for src, dst in kinds.items():
@@ -217,7 +223,6 @@ def pfquest(p, a2u, coef):
                 out["qtext"] = qt
             else:
                 out["loc"].setdefault(loc, {})["qtext"] = qt
-    return out, unmapped
 
 
 def first_ints(v):
@@ -380,6 +385,7 @@ def questie(q, a2u):
             if isinstance(ot, (dict, list)) else ([ot] if isinstance(ot, str) and ot.strip() else [])
         if lines:
             out["qtext"][qid] = {"o": " ".join(lines)}
+    add_names(out, q.get("names") or {})
     return out, unmapped
 
 

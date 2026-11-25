@@ -338,6 +338,62 @@ function apply_corrections(root, env, modules, QDB, tables, skip_generated)
   return report
 end
 
+-- QuestieDB translations -------------------------------------------------------
+-- l10n/<flavor>/lookup*/<locale>.lua with the traces and overrides QuestieDB layers on top,
+-- read through QuestieDB's own loader (generator/l10n-inputs.lua). English is the base data.
+local L10N_KINDS = { Npc = "units", Object = "objects", Item = "items", Quest = "quests" }
+
+local function exists(path)
+  local f = io.open(path, "rb")
+  if f then f:close() end
+  return f ~= nil
+end
+
+local function questie_names(root, flavor)
+  local loader = root .. "/generator/l10n-inputs.lua"
+  if not exists(loader) then return nil end
+  local inputs = dofile(loader)
+  local lroot, fl = root .. "/l10n", { expansion = flavor }
+  local names = {}
+  for _, loc in ipairs(LOCALES) do
+    local n = {}
+    for kind, dst in pairs(L10N_KINDS) do
+      if loc ~= "enUS" and exists(inputs.lookupPath(lroot, fl, inputs.types[kind], loc)) then
+        local ok, rows, corrections = pcall(inputs.load, lroot, fl, kind, loc)
+        if ok then
+          -- corrections apply in order, field by field; false clears a field
+          for _, layer in ipairs(corrections) do
+            for id, fields in pairs(layer) do
+              local row = rows[id] or {}
+              for f, v in pairs(fields) do
+                if v == false then row[f] = nil else row[f] = v end
+              end
+              rows[id] = row
+            end
+          end
+          local t = {}
+          for id, row in pairs(rows) do t[id] = row.name end
+          n[dst] = t
+          if kind == "Quest" then
+            n.qtext = {}
+            for id, row in pairs(rows) do
+              local lines = {}
+              for _, s in ipairs(row.objectivesText or {}) do
+                if type(s) == "string" and s:match("%S") then lines[#lines + 1] = s end
+              end
+              if #lines > 0 then n.qtext[id] = { o = table.concat(lines, " ") } end
+            end
+          end
+        else
+          io.stderr:write("warning: questie l10n " .. kind .. " " .. loc .. ": " .. tostring(rows) .. "\n")
+        end
+      end
+    end
+    if next(n) then names[loc] = n end
+  end
+  return names
+end
+
 -- QuestieDB ------------------------------------------------------------------
 local function questie(root, flavor, outpath, skip_generated)
   local modules = {}
@@ -397,6 +453,7 @@ local function questie(root, flavor, outpath, skip_generated)
     uiMapToArea = data(z.uiMapIdToAreaIdOverride or z.uiMapIdToAreaId),
     areaToUiMap = data(z.areaIdToUiMapIdOverride or z.areaIdToUiMapId),
     classicUiMapToArea = data(classicU2A), classicAreaToUiMap = data(classicA2U),
+    names = questie_names(root, flavor),
   }
   write_json(outpath, res)
 end
