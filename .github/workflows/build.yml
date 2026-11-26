@@ -73,7 +73,7 @@ jobs:
           else echo "::warning::pfQuest could not be fetched"; fi
           # QuestieDB (GPL-3.0): WoW Forever data + Forever corrections + zone tables
           if git clone -q --depth 1 --filter=blob:none --sparse https://github.com/Questie/QuestieDB.git work/src/questie; then
-            git -C work/src/questie sparse-checkout set --no-cone '/data/Forever/' '/src/corrections/' '/support/' '/LICENSE.md' '/gpl-3.0.md'
+            git -C work/src/questie sparse-checkout set --no-cone '/data/Forever/' '/src/corrections/' '/support/' '/l10n/Forever/' '/LICENSE.md' '/gpl-3.0.md'
             echo "REF_QUESTIE=$(git -C work/src/questie rev-parse --short HEAD)" >> "$GITHUB_ENV"
           else echo "::warning::QuestieDB could not be fetched"; fi
           # AllTheThings (MIT): its WoW Forever database sources + the Forever client tables (wago.tools CSV)
@@ -121,7 +121,8 @@ jobs:
           imp vmangos "$REF_VMANGOS" python tools/import_base.py work/src/vmangos work/cache/src-vmangos.json
           GEN=""; [ "$QUESTIE_GENERATED" = "off" ] && GEN="no-generated"
           CONV=work/src/questie/data/Forever/conversion.json
-          imp questie "$REF_QUESTIE-$QUESTIE_GENERATED" sh -c "lua5.1 tools/lua/export.lua questie work/src/questie Forever work/cache/questie.json $GEN && python tools/import_addons.py questie work/cache/questie.json work/cache/src-questie.json --conversion $CONV --dungeons work/src/questie/support/Forever/Zones/dungeons.lua"
+          # (+ its Forever translations in 9 languages, l10n/Forever with the trace-made ones on top)
+          imp questie "$REF_QUESTIE-$QUESTIE_GENERATED" sh -c "lua5.1 tools/lua/export.lua questie work/src/questie Forever work/cache/questie.json $GEN && lua5.1 tools/lua/export.lua l10n work/src/questie Forever work/cache/questie-l10n.json && python tools/import_addons.py questie work/cache/questie.json work/cache/src-questie.json --conversion $CONV --dungeons work/src/questie/support/Forever/Zones/dungeons.lua --l10n work/cache/questie-l10n.json"
           # pfQuest positions are moved onto Forever's maps with QuestieDB's zone tables
           imp pfquest "$REF_PFQUEST-$REF_QUESTIE" sh -c "lua5.1 tools/lua/export.lua pfquest work/src/pfquest work/cache/pfquest.json && python tools/import_addons.py pfquest work/cache/pfquest.json work/cache/src-pfquest.json --zones work/cache/questie.json --conversion $CONV"
           # AllTheThings: its own Lua runs (tools/att), then the Forever client tables it ships
@@ -136,6 +137,9 @@ jobs:
             [ -s "work/terrain-csv/Map.$CB.csv" ] || curl -sSfL -A "forever-db/1" -o "work/terrain-csv/Map.$CB.csv" "https://wago.tools/db2/Map/csv?build=$CB" \
               || echo "::warning::Map table not fetched from wago.tools"
             imp terrain "$CB" python tools/import_terrain.py work/terrain-csv work/cache/terrain work/cache/src-terrain.json --build "$CB"
+            # the client's own texts in every language it has (item / zone / map / achievement ... names)
+            imp clientloc "$CB" sh -c "python tools/import_locales.py '$CB' work/locales work/cache/src-clientloc.json \
+              --english work/src/att/.contrib/.db/forever/.config/.wago --spells work/cache/src-client.json"
           fi
           imp legacy "$REF_LEGACY" sh -c "lua5.1 tools/lua/export.lua ns work/cache/legacy.json work/src/legacy/Data/Legacy.lua work/src/legacy/Data/Explore.lua && python tools/import_extra.py legacy work/cache/legacy.json work/cache/src-legacy.json --locations work/src/legacy/tools/locations.json"
           imp spf "$REF_SPF" sh -c "lua5.1 tools/lua/export.lua ns work/cache/spf.json \$(ls work/src/spf/Data/*.lua | grep -vE 'Credits|Heights|RoadCells|RoadEdges') && python tools/import_extra.py spf work/cache/spf.json work/cache/src-spf.json"
@@ -150,6 +154,7 @@ jobs:
           done
           # priority order: Forever data first, then the most accurate vanilla databases
           python tools/merge.py --out work/base.json --report dist/report.json \
+            $( [ -f work/cache/src-clientloc.json ] && echo clientloc=work/cache/src-clientloc.json ) \
             client=work/cache/src-client.json questie=work/cache/src-questie.json att=work/cache/src-att.json \
             vmangos=work/cache/src-vmangos.json cmangos=work/cache/src-cmangos.json pfquest=work/cache/src-pfquest.json \
             legacy=work/cache/src-legacy.json spf=work/cache/src-spf.json \

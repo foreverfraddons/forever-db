@@ -26,7 +26,7 @@ where sources disagreed (with examples), so the data can be checked.
 import argparse, json, os, statistics
 from collections import Counter, defaultdict
 
-FOREVER = {"client", "questie", "att", "recordings"}   # WoW Forever data: wins any field it has
+FOREVER = {"clientloc", "client", "questie", "att", "recordings"}   # WoW Forever data: wins any field it has
 ENTITY = ["npc", "obj", "item", "quest"]
 UNION = ["qg", "qe", "vend", "rew"]
 DROPS = ["drop", "odrop", "idrop"]
@@ -218,14 +218,20 @@ def merge(sources):
                 e = out["qtext"].setdefault(k, {})
                 for f, x in v.items():
                     e.setdefault(f, x)
-    # ---------------- translations
+    # ---------------- translations: in priority order (the client's own texts first, then QuestieDB's
+    # Forever translations, then pfQuest); quest dialog field by field
     for d in data:
         for loc, tbls in (d.get("loc") or {}).items():
             L = out["loc"].setdefault(loc, {})
             for t, names in tbls.items():
                 dst = L.setdefault(t, {})
                 for k, v in names.items():
-                    dst.setdefault(k, v)
+                    if t == "qtext" and isinstance(v, dict):
+                        e = dst.setdefault(k, {})
+                        for f, x in v.items():
+                            e.setdefault(f, x)
+                    else:
+                        dst.setdefault(k, v)
 
     rep["conflicts"] = dict(sorted(conflicts.items(), key=lambda kv: -kv[1]["count"]))
     rep["merged"] = {t: len(v) for t, v in out.items() if t not in ("loc", "src")}

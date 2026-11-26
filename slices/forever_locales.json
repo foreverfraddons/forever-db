@@ -6,5 +6,6 @@
   "tables": [
     "loc"
   ],
-  "prune": false
+  "prune": false,
+  "per_locale": true
 }

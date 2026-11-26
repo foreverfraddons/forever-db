@@ -422,6 +422,53 @@ local function nsdump(outpath, files)
   write_json(outpath, ns)
 end
 
+-- ------------------------------------------------------------------ QuestieDB translations
+-- l10n/<flavor>/lookup{Quests,Npcs,Items,Objects}/<locale>.lua, then l10n/<flavor>/traces/... on top (per field,
+-- trace entries win - QuestieDB's own rule). Out: {locale: {quest = {id: {title, {objective lines}}},
+-- npc = {id: {name, subname}}, item = {id: name}, obj = {id: name}}}
+local L10N = { Quests = { "questLookup", "quest" }, Npcs = { "npcNameLookup", "npc" },
+               Items = { "itemLookup", "item" }, Objects = { "objectLookup", "obj" } }
+local LOCALES = { "deDE", "esES", "esMX", "frFR", "itIT", "koKR", "ptBR", "ruRU", "zhCN", "zhTW" }
+local function l10n(dir, flavor, outpath)
+  local out = {}
+  local function lookup(path, loc, field)
+    local l10nmod = { [field] = {} }
+    local env = {
+      GetLocale = function() return loc end,
+      QuestieLoader = { ImportModule = function() return l10nmod end },
+      loadstring = function(s) if setfenv then return loadstring(s) end return load(s) end,
+    }
+    local ok, err = pcall(run, path, env)
+    if not ok then io.stderr:write("warning: " .. path .. ": " .. tostring(err) .. "\n") end
+    local v = l10nmod[field][loc]
+    if type(v) == "function" then v = v() end           -- (the files keep them as loadstring(...) to run later)
+    return type(v) == "table" and v or nil
+  end
+  for kind, f in pairs(L10N) do
+    for _, loc in ipairs(LOCALES) do
+      local base = lookup(dir .. "/l10n/" .. flavor .. "/lookup" .. kind .. "/" .. loc .. ".lua", loc, f[1]) or {}
+      local tr = lookup(dir .. "/l10n/" .. flavor .. "/traces/lookup" .. kind .. "/" .. loc .. ".lua", loc, f[1]) or {}
+      local merged = {}
+      for id, v in pairs(base) do merged[id] = v end
+      for id, v in pairs(tr) do
+        local b = merged[id]
+        if type(v) == "table" and type(b) == "table" then           -- per field
+          local m = {}
+          for i = 1, math.max(#v, #b, 2) do if v[i] ~= nil then m[i] = v[i] else m[i] = b[i] end end
+          merged[id] = m
+        else
+          merged[id] = v
+        end
+      end
+      if next(merged) then
+        out[loc] = out[loc] or {}
+        out[loc][f[2]] = merged
+      end
+    end
+  end
+  write_json(outpath, out)
+end
+
 local mode = arg[1]
 if mode == "ns" then
   local files = {}
@@ -429,6 +476,8 @@ if mode == "ns" then
   nsdump(arg[2], files)
 elseif mode == "pfquest" then
   pfquest(arg[2], arg[3])
+elseif mode == "l10n" then
+  l10n(arg[2], arg[3], arg[4])
 elseif mode == "questie" then
   questie(arg[2], arg[3], arg[4], arg[5] == "no-generated")
 else

@@ -309,6 +309,40 @@ def quest_extra(r, qk, a2u):
 
 
 # ------------------------------------------------------------------ QuestieDB
+def seq(v):
+    """a Lua list as the JSON export writes it: a list, or {"1": ..., "2": ...}"""
+    if isinstance(v, list):
+        return v
+    if isinstance(v, dict):
+        return [v[k] for k in sorted(v, key=lambda k: int(k) if str(k).isdigit() else 0)]
+    return []
+
+
+def l10n(src):
+    """QuestieDB's Forever translations -> loc[lang]: npc / npcsub / obj / item / quest names, qtext objectives"""
+    out = {}
+    for loc, kinds in src.items():
+        L = out.setdefault(loc, {})
+        for k, v in (kinds.get("npc") or {}).items():
+            row = seq(v) if not isinstance(v, str) else [v]
+            if row and isinstance(row[0], str) and row[0]:
+                L.setdefault("npc", {})[int(k)] = row[0]
+            if len(row) > 1 and isinstance(row[1], str) and row[1]:
+                L.setdefault("npcsub", {})[int(k)] = row[1]
+        for kind in ("obj", "item"):
+            for k, v in (kinds.get(kind) or {}).items():
+                if isinstance(v, str) and v:
+                    L.setdefault(kind, {})[int(k)] = v
+        for k, v in (kinds.get("quest") or {}).items():
+            row = seq(v) if not isinstance(v, str) else [v]
+            if row and isinstance(row[0], str) and row[0]:
+                L.setdefault("quest", {})[int(k)] = row[0]
+            lines = [s for s in seq(row[1]) if isinstance(s, str) and s.strip()] if len(row) > 1 else []
+            if lines:
+                L.setdefault("qtext", {})[int(k)] = {"o": " ".join(lines)}
+    return out
+
+
 def questie(q, a2u):
     out, unmapped = empty(), set()
     nk, ok, ik, qk = q["npcKeys"], q["objectKeys"], q["itemKeys"], q["questKeys"]
@@ -413,6 +447,7 @@ def main():
     ap.add_argument("dst")
     ap.add_argument("--zones", help="questie export json with the zone tables (for pfquest)")
     ap.add_argument("--conversion", help="QuestieDB data/Forever/conversion.json")
+    ap.add_argument("--l10n", help="export.lua l10n output: QuestieDB's Forever translations (9 languages)")
     ap.add_argument("--dungeons", help="QuestieDB support/Forever/Zones/dungeons.lua (dungeon entrances)")
     a = ap.parse_args()
     src = json.load(open(a.src, encoding="utf-8"))
@@ -423,6 +458,8 @@ def main():
         a2u, _ = zone_tables(a.src, a.conversion)
         out, unmapped = questie(src, a2u)
         out["dng"] = dungeons(a.dungeons, a2u)
+        if a.l10n and os.path.exists(a.l10n):
+            out["loc"] = l10n(json.load(open(a.l10n, encoding="utf-8")))
     print(a.kind, {k: len(v) for k, v in out.items()}, "zones without a map:", len(unmapped))
     os.makedirs(os.path.dirname(a.dst) or ".", exist_ok=True)
     with open(a.dst, "w", encoding="utf-8") as f:

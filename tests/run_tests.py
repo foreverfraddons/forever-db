@@ -154,6 +154,30 @@ def main():
           qdb["qtext"]["5001"] == {"d": "Forever words, $N.", "o": "kill things", "p": "Got them?", "c": "thanks", "rec": 1})
     check("quest dialog: recorded greeting", qdb["qgreet"]["c777"] == "Hello $C.")
 
+    # ---- every client language
+    lsp = os.path.join(tmp, "lsp.json"); json.dump({"ieff": {"25": [[1, 0, 0, 0, 0]]}}, open(lsp, "w"))
+    run("tools/import_locales.py", "1.0", os.path.join(tmp, "lcache"), os.path.join(tmp, "lo.json"),
+        "--files", os.path.join(HERE, "fixtures", "locales"), "--spells", lsp)
+    lo = json.load(open(os.path.join(tmp, "lo.json")))["loc"]
+    check("languages: the client's own item names and texts", lo["deDE"]["item"] == {"25": "Abgenutztes Kurzschwert", "35": "Gebogener Stab"}
+          and lo["deDE"]["itemdesc"] == {"35": "Ein alter Stab"})
+    check("languages: a language the client doesn't have (still English) is left out", "itIT" not in lo)
+    check("languages: holiday names by holiday, spell names only for listed spells",
+          lo["deDE"]["holname"] == {"141": "Winterhauchfest"} and lo["deDE"]["spell"] == {"1": "Feuerball"})
+    ml, _ = _m.merge([("clientloc", {"loc": {"deDE": {"item": {"25": "Client-Name"}}}}),
+                      ("questie", {"loc": {"deDE": {"item": {"25": "Questie-Name", "26": "Nur Questie"}, "qtext": {"5": {"o": "Ziele"}}}}}),
+                      ("pfquest", {"loc": {"deDE": {"qtext": {"5": {"d": "Beschreibung", "o": "alt"}}}}})])
+    check("languages: client texts win, then QuestieDB, quest dialog filled field by field",
+          ml["loc"]["deDE"]["item"] == {"25": "Client-Name", "26": "Nur Questie"} and ml["loc"]["deDE"]["qtext"]["5"] == {"o": "Ziele", "d": "Beschreibung"})
+    import slice as _s2
+    ldir = os.path.join(tmp, "locslice"); os.makedirs(ldir)
+    open(os.path.join(ldir, "ForeverDB_Locales.toc"), "w").write("## Interface: 1\nForeverDB_Locales.lua\n")
+    _s2.write_lua({"meta": {}, "loc": {"deDE": {"npc": {"1": "Hund"}}, "esES": {"npc": {"1": "Perro"}}}},
+                  {"global": "ForeverDBLocale", "files": "ForeverDB_Locales", "toc": "ForeverDB_Locales.toc", "per_locale": True}, ldir)
+    lt = open(os.path.join(ldir, "ForeverDB_Locales.lua"), encoding="utf-8").read()
+    check("languages: each language only loads in its own game (esMX also loads esES)",
+          'if not W["deDE"] then return end' in lt and 'esMX="esES"' in lt and 't[1]="Hund"' in lt)
+
     # ---- zone borders from the terrain (tools/import_terrain.py)
     tdir = os.path.join(tmp, "terrain"); os.makedirs(tdir)
     run("tests/fixtures/terrain/make.py", tdir)
