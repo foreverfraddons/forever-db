@@ -1562,6 +1562,7 @@ D.qinfo = D.qinfo or {}
 t[8]={xb=110}
 t[354]={xb=875}
 t[355]={xb=85}
+t[356]={lv=11,m=300,xb=650}
 t[358]={xb=700}
 t[359]={xb=200}
 t[360]={xb=390}
@@ -1570,13 +1571,18 @@ t[363]={xb=40}
 t[364]={xb=170}
 t[365]={xb=625}
 t[367]={xb=550}
+t[368]={lv=9,m=300,xb=775}
+t[370]={lv=9,m=300,xb=775}
+t[374]={lv=7,m=175,xb=625}
 t[375]={xb=700}
 t[376]={xb=170}
-t[380]={xb=360}
+t[380]={lv=4,m=0,xb=360}
 t[381]={lv=4,m=0,xb=360}
 t[398]={xb=850}
 t[404]={xb=410}
+t[405]={lv=8,m=0,xb=180}
 t[407]={xb=160}
+t[408]={lv=13,m=0,xb=900}
 t[426]={xb=875}
 t[427]={xb=700}
 t[456]={ch={5394,11187},lv=2,m=35,minlv=1,o="Kill 7 Young Nightsabers and 4 Young Thistle Boars and return to Conservator Ilthalaine.",xb=170}
@@ -1716,6 +1722,7 @@ t[91282]={xb=220}
 t[91285]={xb=875}
 t[91294]={xb=440}
 t[91316]={xb=875}
+t[91317]={lv=12,m=500,xb=900}
 t[91488]={xb=4400}
 t[91568]={xb=5047}
 t[91569]={xb=3950}
@@ -1783,6 +1790,7 @@ t[95288]={xb=3600}
 t[95293]={xb=1700}
 t[95294]={xb=350}
 t[95295]={xb=317}
+t[95314]={lv=10,m=350,xb=850}
 t[95417]={xb=400}
 t[95418]={xb=400}
 t[95420]={xb=400}
@@ -1809,10 +1817,14 @@ t[96607]={xb=410}
 t[96658]={xb=270}
 t[96775]={xb=10100}
 t[96776]={xb=12138}
-t[98389]={xb=360}
+t[97558]={lv=11,m=300,xb=650}
+t[97959]={lv=6,m=0,xb=270}
+t[98389]={lv=4,m=0,xb=360}
 t[98601]={xb=40}
 t[99134]={xb=410}
 t[99141]={xb=410}
+t[99142]={lv=11,m=0,xb=875}
+t[99144]={lv=7,m=175,xb=625}
 end)()
 D.qmiss = D.qmiss or {}
 ;(function() local t = D.qmiss
@@ -1893,6 +1905,7 @@ end)()
 D.rare = D.rare or {}
 ;(function() local t = D.rare
 t[763]={at={{1435,639,206}},gap=nil,n=1}
+t[271080]={at={{1420,197,509}},gap=nil,n=1}
 end)()
 D.oskill = D.oskill or {}
 D.ctype = D.ctype or {}
@@ -2058,6 +2071,7 @@ t[5425]={"Beast","Hyena"}
 t[5428]={"Beast","Carrion Bird"}
 t[5546]={"Humanoid"}
 t[5547]={"Humanoid"}
+t[5597]={"Humanoid"}
 t[5598]={"Humanoid"}
 t[5624]={"Undead"}
 t[5645]={"Humanoid"}
@@ -2263,10 +2277,12 @@ t[266025]={"Non-combat Pet"}
 t[266735]={"Non-combat Pet"}
 t[268048]={"Humanoid"}
 t[268624]={"Humanoid"}
+t[268707]={"Non-combat Pet"}
 t[268745]={"Humanoid"}
 t[269647]={"Humanoid"}
 t[270582]={"Humanoid"}
 t[270780]={"Humanoid"}
+t[271080]={"Beast"}
 t[271351]={"Humanoid"}
 t[271460]={"Elemental"}
 t[271915]={"Non-combat Pet"}
