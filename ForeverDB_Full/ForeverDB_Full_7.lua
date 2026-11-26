@@ -1589,7 +1589,7 @@ t[91282]={o="Find the fortress of Bandarion Keep and report to Breton Samuels th
 t[91285]={o="Slay 8 Vile Fin Attackers and 8 Vile Fin Seers and report back to Breton Samuels when it is done."}
 t[91294]={o="Speak to the residents of Bandarion Keep."}
 t[91316]={o="Collect 12 pieces of Sturdy Lumber from Shadowvale in Tirisfal Glades."}
-t[91317]={o="Slay 8 Tarnished Drudges, 6 Tarnished Zealots, and collect the head of Commander Rudolph Gelhardt in Tirisfal Glades."}
+t[91317]={c="Excellent work, $N. Every time one of these Tarnished strike out and kill one of the Forsaken, it becomes that much easier for our detractors to stoke mistrust towards us $cs. Eliminating them will help further our cause and solidify our place here in Tirisfal.\n\nI suspect it may take a long time for us to be fully embraced by the Forsaken and the horde. It could take years... or maybe even decades, but the best we can do is keep trying to prove ourselves.",o="Slay 8 Tarnished Drudges, 6 Tarnished Zealots, and collect the head of Commander Rudolph Gelhardt in Tirisfal Glades.",p="The Tarnished threaten what little goodwill we have with the other Forsaken. As much as it pains me to cross blades with our former brothers and sisters, they must be stopped if our fledgling order is to survive.",rec=1}
 t[91488]={o="Bring 5 Mosshoof Hides to Kurll at Valormok in Azshara."}
 t[91497]={o="Bring the Seal of the Warden, Seal of the Warrior, and Seal of the Ranger to the Sin'dorei Tome of Summoning."}
 t[91500]={o="Break the Seals of the Sin'dorei, then bring Magus Rimtori's head to Ag'tor Bloodfist in Valormok."}
@@ -2402,7 +2402,7 @@ t[95793]={o="Slay 12 Felguard Sentinels in Dae'gun."}
 t[95795]={o="Return to Dorin Songblade."}
 t[95798]={o="Bring the I'lalai Fetish to Abra Cadabra in Dalaran."}
 t[95799]={o="Bring Loremaster Dibbs' I'lalai Translations to Historian Karnik in Ironforge."}
-t[95803]={o="Bring the head of Rudolph Gelhardt to Sylvanas Windrunner in the Undercity."}
+t[95803]={d="Now that we've claimed the head of the tarnished commander, I need you to deliver it to the Undercity. Sylvanas Windrunner mistrusts us greatly, and all but openly disparages us.\n\nDeliver Rudolph Gelhardt's head to the Dark Lady. Show her that we tend to our own house and are devoted to the prosperity of the forsaken.",o="Bring the head of Rudolph Gelhardt to Sylvanas Windrunner in the Undercity.",rec=1}
 t[95805]={o="Carry the Smoldering Incense to the shrine of An'she and Mu'sha in the southeastern hills before the incense burns to ash in ten minutes!"}
 t[95809]={o="Return to Caitlin Grassman in Menethil Harbor."}
 t[95810]={o="Bring the Titan Relic to Prospector Whelgar in the Wetlands excavation site."}
@@ -2597,6 +2597,7 @@ t[96899]={o="Meet Leonid Barthalomew at Bandarion Keep in Tirisfal Glades."}
 t[96912]={o="Win 10 duels."}
 t[96913]={o="Complete 3 Warsong Gulch battles."}
 t[96914]={o="Kill 25 players of the enemy faction in Warsong Gulch."}
+t[96915]={o="Complete 3 Arathi Basin battles."}
 t[96930]={o="Return to the Curious Crow."}
 t[96931]={o="Touch the Crow Effigy on the bridge overlooking the Cradle of Tranquility to call the Wild God, Jereman."}
 t[96939]={o="Speak to the Wild God, Marrosis."}
@@ -3066,6 +3067,7 @@ t["c238"]="Sometimes I think there's a big gray cloud in the sky, just raining d
 t["c239"]="Adventure from lands far and near $bMeeting with folks both odd and queer $bBut if of me a question you ask $bYou must first complete a simple task!"
 t["c240"]="Ach, it's hard enough keeping order around here without all these new troubles popping up!  I hope you have good news, $N..."
 t["c241"]="Hey there, friend.  My name's Remy.$BI'm from Redridge to the east, and came here looking for business, looking for business.  You got any...got any??"
+t["c246378"]="Welcome to Bandarion Keep, $c."
 t["c2497"]="Eh?  You have business with Nimboya?"
 t["c2498"]="What what?!?  We all have profit to make... and we won't do it by standing idle."
 t["c2500"]="They're out there!  I can hear them at night, laughing.  Oh, they'll pay!  They...will...pay!!"
