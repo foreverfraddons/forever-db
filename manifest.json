@@ -57,7 +57,7 @@
   "seff": 3931,
   "skin": 22,
   "sla": 7390,
-  "spf": 29,
+  "spf": 30,
   "spm": 5106,
   "spw": 15877,
   "spz": 16533,
@@ -87,7 +87,7 @@
   "submissions": 11
  },
  "fixes": 7,
- "hash": "aebd8f27d6190894",
+ "hash": "b3dc4e58b396e4c4",
  "recorded": {
   "newSpawns": 2,
   "questRewardsFromGame": 237
@@ -136,7 +136,7 @@
    "forever": true,
    "licence": "MIT",
    "name": "att",
-   "ref": "3f98f67",
+   "ref": "b0bb19d",
    "repo": "ATTWoWAddon/AllTheThings",
    "title": "AllTheThings (WoW Forever database)"
   },
@@ -144,7 +144,7 @@
    "forever": true,
    "licence": "GPL-3.0-or-later",
    "name": "legacy",
-   "ref": "8c9bde8",
+   "ref": "53fd109",
    "repo": "cjber/legacy-forever",
    "title": "LegacyForever"
   },
@@ -152,7 +152,7 @@
    "forever": true,
    "licence": "GPL-3.0-or-later",
    "name": "spf",
-   "ref": "aa69868",
+   "ref": "9a04814",
    "repo": "cjber/shortest-path-forever",
    "title": "Shortest Path Forever"
   },

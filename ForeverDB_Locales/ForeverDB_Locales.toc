@@ -2,7 +2,7 @@
 ## Title: ForeverDB (Locales)
 ## Notes: Names of NPCs, objects, items and quests in 9 languages for ForeverDB. Loaded only when an addon asks for it (global ForeverDBLocale).
 ## Author: Fatedfr
-## Version: 2026.11.26.54
+## Version: 2026.11.26.55
 ## LoadOnDemand: 1
 ## X-License: GPL-3.0 - sources and their licences in LICENSE-DATA.txt
 ## X-Website: https://github.com/foreverfraddons/forever-db
@@ -16,3 +16,6 @@ ForeverDB_Locales_6.lua
 ForeverDB_Locales_7.lua
 ForeverDB_Locales_8.lua
 ForeverDB_Locales_9.lua
+ForeverDB_Locales_10.lua
+ForeverDB_Locales_11.lua
+ForeverDB_Locales_12.lua

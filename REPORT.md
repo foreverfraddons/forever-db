@@ -1,14 +1,15 @@
 # ForeverDB merge report
 
-Sources in priority order: client, questie, att, vmangos, cmangos, pfquest, legacy, spf, terrain (Forever sources win any field they have; otherwise the most common value wins).
+Sources in priority order: clientloc, client, questie, att, vmangos, cmangos, pfquest, legacy, spf, terrain (Forever sources win any field they have; otherwise the most common value wins).
 
 ## Entries per source
 
 | Source | npc | obj | item | quest |
 |---|---|---|---|---|
+| clientloc | 0 (0 only here) | 0 (0 only here) | 0 (0 only here) | 0 (0 only here) |
 | client | 0 (0 only here) | 0 (0 only here) | 32011 (5342 only here) | 0 (0 only here) |
 | questie | 15565 (5192 only here) | 7480 (752 only here) | 24227 (246 only here) | 6085 (193 only here) |
-| att | 1722 (0 only here) | 240 (2 only here) | 14345 (3 only here) | 5166 (66 only here) |
+| att | 1722 (0 only here) | 240 (2 only here) | 14346 (3 only here) | 5166 (66 only here) |
 | vmangos | 10381 (0 only here) | 9368 (507 only here) | 17707 (0 only here) | 4433 (0 only here) |
 | cmangos | 10384 (0 only here) | 10743 (650 only here) | 17718 (0 only here) | 4245 (0 only here) |
 | pfquest | 10385 (4 only here) | 8985 (19 only here) | 17712 (0 only here) | 4433 (0 only here) |
@@ -16,7 +17,7 @@ Sources in priority order: client, questie, att, vmangos, cmangos, pfquest, lega
 | spf | 0 (0 only here) | 0 (0 only here) | 0 (0 only here) | 0 (0 only here) |
 | terrain | 0 (0 only here) | 0 (0 only here) | 0 (0 only here) | 0 (0 only here) |
 
-Merged: npc 15831, obj 12111, item 32280, quest 6332, qg 5680, qe 6024, vend 3933, rew 3202, drop 11011, odrop 3762, idrop 2750, qx 6085, nfac 7575, dng 232, ind 154, taxi 101, umap 60, umaa 61, area 1404, ach 493, ctree 6797, crit 3407, mtree 2883, hol 23, sla 7390, ieff 9026, seff 3931, tset 9, bpet 122, ctun 103, wmo 1081, legacy 5, lcrit 6, explore 43, spf 29, zbord 58, abord 833, agrid 6, qrw 4132, ptl 0, qwk 0, qgreet 200, start 823, world 3136, spw 15877, spz 16533, qtext 6037
+Merged: npc 15831, obj 12111, item 32280, quest 6332, qg 5680, qe 6024, vend 3933, rew 3202, drop 11011, odrop 3762, idrop 2750, qx 6085, nfac 7575, dng 232, ind 154, taxi 101, umap 60, umaa 61, area 1404, ach 493, ctree 6797, crit 3407, mtree 2883, hol 23, sla 7390, ieff 9026, seff 3931, tset 9, bpet 122, ctun 103, wmo 1081, legacy 5, lcrit 6, explore 43, spf 30, zbord 58, abord 833, agrid 6, qrw 4132, ptl 0, qwk 0, qgreet 200, start 823, world 3136, spw 15877, spz 16533, qtext 6037
 
 Forever-only entries (only the Forever source has them): npc 5192, obj 754, item 5591, quest 259
 

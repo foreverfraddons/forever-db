@@ -39,6 +39,8 @@ Sources and their licences:
   (each ADT map chunk's area ID), read by file ID from wago.tools for the client build. The way the
   terrain is read follows OpenMap's tools (MIT, Copyright (c) 2026 OpenMap contributors,
   https://github.com/openmap-world/openmap); no OpenMap code or data is copied.
+- Translations: the WoW Forever client's own texts per language (game data, read from wago.tools by build),
+  QuestieDB's Forever translations (l10n/Forever, GPL-3.0) and pfQuest's (MIT).
 - WoW Forever in-game recordings (Command Center's recorder).
 
 Wowhead is not scraped by this project.
