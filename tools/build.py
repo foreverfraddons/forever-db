@@ -822,6 +822,22 @@ def build(base, agg):
     # map positions from the addon databases (Forever maps) for anything without world coordinates
     db["spm"] = {k: v for k, v in (db.get("spz") or {}).items() if k not in db["spw"]}
     db["vp"], db["seen"] = {}, {}
+    # never implemented in WoW Forever (AllTheThings), e.g. the beta event's Molten Core look-alikes that low-level
+    # creatures dropped on the beta's last day: no source's drop / vendor / container rows for them (recorded on the
+    # live servers by our own recorders still counts - those come in below)
+    nyi = {int(k[1:]) for k in (db.get("nyi") or {}) if str(k).startswith("i") and str(k)[1:].isdigit()}
+    removed = 0
+    for t in ("drop", "odrop", "idrop", "vend", "world", "start", "skin"):
+        for it in list((db.get(t) or {}).keys()):
+            if it in nyi:
+                del db[t][it]
+                removed += 1
+    for key in list((agg.get("dtloot") or {}).keys()):
+        e = agg["dtloot"][key]
+        for it in [i for i in e["i"] if i in nyi]:
+            del e["i"][it]
+            removed += 1
+    print("never implemented: %d items, %d source rows left out" % (len(nyi), removed))
     # names / levels
     for npc, e in agg["npc"].items():
         b = db["npc"].get(npc)

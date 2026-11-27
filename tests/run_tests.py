@@ -154,6 +154,22 @@ def main():
           qdb["qtext"]["5001"] == {"d": "Forever words, $N.", "o": "kill things", "p": "Got them?", "c": "thanks", "rec": 1})
     check("quest dialog: recorded greeting", qdb["qgreet"]["c777"] == "Hello $C.")
 
+    # ---- never implemented (AllTheThings): no source rows, but a live recording still counts
+    nb = json.load(open(os.path.join(tmp, "base.json")))
+    nb["nyi"] = {"i288900": 1}
+    nb["drop"] = dict(nb.get("drop") or {}, **{"288900": [[113, 0], [3098, 43]]})
+    json.dump(nb, open(os.path.join(tmp, "base_nyi.json"), "w"))
+    ncol = os.path.join(tmp, "nyicol"); os.makedirs(ncol)
+    run("tools/build.py", "--base", os.path.join(tmp, "base_nyi.json"), "--collected", ncol, "--out", os.path.join(tmp, "nyi1.json"),
+        "--droptables", os.path.join(HERE, "fixtures", "droptables.json"))
+    n1 = json.load(open(os.path.join(tmp, "nyi1.json")))
+    check("never implemented: the beta event item has no drop rows", "288900" not in n1["drop"])
+    with open(os.path.join(ncol, "rec.lua"), "w") as f:
+        f.write('CommandCenterCollect = { ["loot"] = { ["c:500"] = { ["n"] = 4, ["i"] = { [288900] = 1 } } } }\n')
+    run("tools/build.py", "--base", os.path.join(tmp, "base_nyi.json"), "--collected", ncol, "--out", os.path.join(tmp, "nyi2.json"))
+    n2 = json.load(open(os.path.join(tmp, "nyi2.json")))
+    check("never implemented: looted on the live servers (our recording) still counts", n2["drop"].get("288900") == [[500, 2500]])
+
     # ---- every client language
     lsp = os.path.join(tmp, "lsp.json"); json.dump({"ieff": {"25": [[1, 0, 0, 0, 0]]}}, open(lsp, "w"))
     run("tools/import_locales.py", "1.0", os.path.join(tmp, "lcache"), os.path.join(tmp, "lo.json"),

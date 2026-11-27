@@ -147,6 +147,25 @@ for name, cat in pairs(ATT) do
   end
 end
 
+-- items and quests ATT lists as never implemented (e.g. WoW Forever's "Beta Event": epic items low-level
+-- creatures dropped on the beta's last day, in the client's Item table but not obtainable in the live game).
+-- Anything also found in a live category above is left out of this list.
+out.nyi = { item = {}, quest = {} }
+local nseen = {}
+local function nyiwalk(o)
+  if type(o) ~= "table" or nseen[o] then return end
+  nseen[o] = true
+  local it, q = num(rawget(o, "itemID")), num(rawget(o, "questID"))
+  if it and it > 0 and not out.item[it] then out.nyi.item[it] = 1 end
+  if q and q > 0 and not rawget(o, "itemID") and not out.quest[q] then out.nyi.quest[q] = 1 end
+  local kids = rawget(o, "groups") or rawget(o, "g")
+  if type(kids) == "table" then for _, k in ipairs(kids) do nyiwalk(k) end end
+end
+if type(ATT.NeverImplemented) == "table" then
+  nyiwalk(ATT.NeverImplemented)
+  for _, k in ipairs(ATT.NeverImplemented) do nyiwalk(k) end
+end
+
 -- JSON (same encoder idea as tools/lua/export.lua)
 local esc = { ['"'] = '\\"', ['\\'] = '\\\\', ['\n'] = '\\n', ['\r'] = '\\r', ['\t'] = '\\t' }
 local function enc(v, buf)

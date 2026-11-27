@@ -39,7 +39,8 @@ PASS = ["qx", "nfac", "dng", "ind",    # single-source detail tables: first sour
         # zone and sub-zone borders from the Forever client's terrain (tools/import_terrain.py)
         "zbord", "abord", "agrid",
         "qrw", "ptl", "qwk",
-        "qgreet"]                                                   # questgiver greetings (MaNGOS dumps)                                        # quest rewards (MaNGOS dumps): money, XP, choice / fixed items
+        "qgreet",                                                   # questgiver greetings (MaNGOS dumps)
+        "nyi"]                                                      # never implemented (AllTheThings), e.g. the Forever beta event loot
 FIELDS = {"npc": ["name", "sub", "minLv", "maxLv", "rank"], "obj": ["name"],
           "item": ["name", "quality", "reqLevel", "ilvl", "class", "subclass", "slot", "icon", "classes", "skill",
                    "skillRank", "races", "minFaction", "minRep"],
