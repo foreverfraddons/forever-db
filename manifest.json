@@ -1,5 +1,5 @@
 {
- "build": "2026-11-26",
+ "build": "2026-11-27",
  "chainPrereqs": 155,
  "counts": {
   "abord": 833,
@@ -32,7 +32,7 @@
   "nfac": 7575,
   "note": 3,
   "npc": 15831,
-  "obj": 12111,
+  "obj": 12115,
   "odrop": 3762,
   "oskill": 0,
   "osummon": 0,
@@ -58,9 +58,9 @@
   "skin": 22,
   "sla": 7390,
   "spf": 30,
-  "spm": 5106,
+  "spm": 5110,
   "spw": 15877,
-  "spz": 16533,
+  "spz": 16537,
   "start": 823,
   "taxi": 101,
   "train": 2,
@@ -81,13 +81,13 @@
   "zsub": 31
  },
  "dropTables": {
-  "built": 1795683122,
-  "kills": 44755,
+  "built": 1795733818,
+  "kills": 44820,
   "mobs": 2256,
-  "submissions": 11
+  "submissions": 12
  },
  "fixes": 7,
- "hash": "20e125359d02111d",
+ "hash": "ebff6aa0b75a410b",
  "recorded": {
   "newSpawns": 2,
   "questRewardsFromGame": 237
@@ -98,7 +98,7 @@
    "forever": true,
    "licence": "GPL-3.0 (see LICENSE-DATA.txt)",
    "name": "questie",
-   "ref": "661d7ff",
+   "ref": "5c145e3",
    "repo": "Questie/QuestieDB",
    "title": "QuestieDB (WoW Forever)"
   },
@@ -113,7 +113,7 @@
   {
    "licence": "GPL-3.0",
    "name": "cmangos",
-   "ref": "13e9337",
+   "ref": "830293e",
    "repo": "cmangos/classic-db",
    "title": "cMaNGOS classic-db"
   },
@@ -136,7 +136,7 @@
    "forever": true,
    "licence": "MIT",
    "name": "att",
-   "ref": "023b1bb",
+   "ref": "dcdee66",
    "repo": "ATTWoWAddon/AllTheThings",
    "title": "AllTheThings (WoW Forever database)"
   },
@@ -144,7 +144,7 @@
    "forever": true,
    "licence": "GPL-3.0-or-later",
    "name": "legacy",
-   "ref": "5902fef",
+   "ref": "52048ad",
    "repo": "cjber/legacy-forever",
    "title": "LegacyForever"
   },
@@ -152,7 +152,7 @@
    "forever": true,
    "licence": "GPL-3.0-or-later",
    "name": "spf",
-   "ref": "9a382d3",
+   "ref": "a4972bf",
    "repo": "cjber/shortest-path-forever",
    "title": "Shortest Path Forever"
   },
@@ -160,7 +160,7 @@
    "forever": true,
    "licence": "CC BY-SA 4.0 (data; includes Blackthornes Farmer MIT, EG Link CC BY 4.0, Everloot CC BY-SA 4.0)",
    "name": "droptables",
-   "ref": "0864aa7",
+   "ref": "ff0b214",
    "repo": "valcheffnet/DropTables",
    "title": "Drop Tables (WoW Forever loot counts)"
   },
