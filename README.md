@@ -8,7 +8,7 @@ A World of Warcraft: Forever database that rebuilds itself and feeds any number 
 |---|---|---|
 | WoW Forever client tables (wago.tools CSV exports, shipped by AllTheThings) | Exact game data: every item (name, quality, item level, required level, class, slot, icon), flight masters, UI maps and their world bounds, zones, achievements and criteria, holidays, recipes/skill spells, item use effects, transmog sets, battle pets | Blizzard Entertainment's game data |
 | [AllTheThings](https://github.com/ATTWoWAddon/AllTheThings) (its WoW Forever database, run with `tools/att`) | Hand-curated Forever quests: givers, levels, positions on Forever's maps, rewards, vendors, drops | MIT |
-| [QuestieDB](https://github.com/Questie/QuestieDB) (Forever flavor + its Forever corrections) | The only open data with **WoW Forever** content: Forever-only quests, NPCs, items and objects, new zones (Zephras Isle, Riverglades, Mount Hyjal...), Forever map positions, links from player traces | GPL-3.0 (see LICENSE-DATA.txt) |
+| [QuestieDB](https://github.com/Questie/QuestieDB) (Forever flavor + its Forever corrections) | The only open data with **WoW Forever** content: Forever-only quests, NPCs, items and objects, new zones (Zephras Isle, Riverglades, Mount Hyjal...), Forever map positions, links from player traces, Forever quest XP | GPL-3.0 (see LICENSE-DATA.txt) |
 | [VMaNGOS](https://github.com/vmangos/core) nightly dump | Very accurate 1.12 drop rates, vendors, quests, spawns | GPL-2.0-or-later |
 | [cMaNGOS classic-db](https://github.com/cmangos/classic-db) | Same kinds of data, independently maintained | GPL-3.0 |
 | [pfQuest](https://github.com/shagu/pfQuest) | Drop rates, map positions, names in 9 languages | MIT |
@@ -123,7 +123,7 @@ Tables:
 | `vend` | per item: vendor ids |
 | `vp` | prices seen |
 | `rew` | quest rewards |
-| `qrw` | quest rewards in detail (MaNGOS dumps): [quest] = {money in copper, full XP (classic formula from RewMoneyMaxLevel, before the grey-quest penalty), {choice items}, {fixed items}} |
+| `qrw` | quest rewards in detail: [quest] = {money in copper, full XP (before the grey-quest penalty), {choice items}, {fixed items}}. Money and items from the MaNGOS dumps; XP from QuestieDB's Forever quest XP (players' traces), else the classic formula from RewMoneyMaxLevel; recordings replace both |
 | `start` | item starts a quest |
 | `world` | world drops (minimum level) |
 | `taxi` | flight masters: name, continent, x, y, z, flags, Horde/Alliance mount |

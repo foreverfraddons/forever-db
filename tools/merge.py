@@ -38,7 +38,7 @@ PASS = ["qx", "nfac", "dng", "ind",    # single-source detail tables: first sour
         "legacy", "lcrit", "explore", "spf",
         # zone and sub-zone borders from the Forever client's terrain (tools/import_terrain.py)
         "zbord", "abord", "agrid",
-        "qrw", "ptl", "qwk",
+        "ptl", "qwk",
         "qgreet"]                                                   # questgiver greetings (MaNGOS dumps)                                        # quest rewards (MaNGOS dumps): money, XP, choice / fixed items
 FIELDS = {"npc": ["name", "sub", "minLv", "maxLv", "rank"], "obj": ["name"],
           "item": ["name", "quality", "reqLevel", "ilvl", "class", "subclass", "slot", "icon", "classes", "skill",
@@ -209,6 +209,20 @@ def merge(sources):
         for d in data:
             for k, v in (d.get(t) or {}).items():
                 out[t].setdefault(k, v)
+    # ---------------- quest rewards [money, full XP, choices, fixed]: the first non-Forever row (MaNGOS dumps),
+    # then every field a Forever source gives wins (QuestieDB's Forever quest XP); a new row has no money
+    out["qrw"] = {}
+    for n, d in zip(NAMES, data):
+        if n not in FOREVER:
+            for k, v in (d.get("qrw") or {}).items():
+                out["qrw"].setdefault(k, list(v))
+    for n, d in reversed(list(zip(NAMES, data))):       # higher priority last, so it wins
+        if n in FOREVER:
+            for k, v in (d.get("qrw") or {}).items():
+                row = out["qrw"].setdefault(k, [0, 0, None, None])
+                for i, x in enumerate(v):
+                    if x is not None:
+                        row[i] = x
     # ---------------- quest dialog, field by field: Forever sources first (QuestieDB's Forever objective
     # lines), then the rest in priority order (MaNGOS details / progress / completion, pfQuest)
     order = [d for n, d in zip(NAMES, data) if n in FOREVER] + [d for n, d in zip(NAMES, data) if n not in FOREVER]

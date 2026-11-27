@@ -109,7 +109,7 @@ def add_spots(spz, key, ui, x, y):
 
 def empty():
     return {k: {} for k in ["npc", "obj", "item", "quest", "qg", "qe", "drop", "odrop", "idrop",
-                            "vend", "rew", "start", "world", "spw", "spz", "loc", "qx", "nfac", "dng", "ind", "qtext"]}
+                            "vend", "rew", "start", "world", "spw", "spz", "loc", "qx", "nfac", "dng", "ind", "qtext", "qrw"]}
 
 
 def qtext_entry(d, o):
@@ -414,6 +414,12 @@ def questie(q, a2u):
             if isinstance(ot, (dict, list)) else ([ot] if isinstance(ot, str) and ot.strip() else [])
         if lines:
             out["qtext"][qid] = {"o": " ".join(lines)}
+    # Forever quest XP {quest: {level, full XP}}: only the XP field of qrw (money, choices, fixed unknown here);
+    # level <= 0 or no XP marks quests without a value
+    for qid, v in (q.get("questXP") or {}).items():
+        v = obj_list(v)
+        if len(v) >= 2 and (num(v[0]) or 0) > 0 and (num(v[1]) or 0) > 0:
+            out["qrw"][int(qid)] = [None, num(v[1]), None, None]
     return out, unmapped
 
 

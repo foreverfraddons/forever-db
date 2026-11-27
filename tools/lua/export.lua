@@ -386,6 +386,12 @@ local function questie(root, flavor, outpath, skip_generated)
     applied = apply_corrections(root, env, modules, QDB, {
       Npc = npcData, Object = objData, Item = itemData, Quest = questData }, skip_generated)
   end
+  -- quest XP ({quest level, full XP}): the classic table, then the values players' traces measured on Forever
+  if flavor == "Forever" then
+    for _, f in ipairs({ "xpDB-classic", "xpDB-traces" }) do
+      run(root .. "/support/Forever/QuestXP/" .. f .. ".lua", env)
+    end
+  end
   local zids = {}
   for name, id in pairs((modules.ZoneDB or {}).zoneIDs or {}) do zids[name] = id end
   local res = {
@@ -397,6 +403,7 @@ local function questie(root, flavor, outpath, skip_generated)
     uiMapToArea = data(z.uiMapIdToAreaIdOverride or z.uiMapIdToAreaId),
     areaToUiMap = data(z.areaIdToUiMapIdOverride or z.areaIdToUiMapId),
     classicUiMapToArea = data(classicU2A), classicAreaToUiMap = data(classicA2U),
+    questXP = (modules.QuestXP or {}).db,
   }
   write_json(outpath, res)
 end
