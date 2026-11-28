@@ -1606,6 +1606,7 @@ t[84154]={o="Sammelt 15 Blutproben aus Winterspring und bringt sie zusammen mit 
 t[84155]={o="Sammelt 15 Giftproben aus Silithus und bringt sie zusammen mit 20 Gold und einem Paar Armschienen des Wildherzens zu Mokvar in Orgrimmar zurück."}
 t[84156]={o="Sammelt 15 Giftproben aus Silithus und bringt sie zusammen mit 20 Gold und einem Paar Bestienjägerbindungen zu Mokvar in Orgrimmar zurück."}
 t[84157]={o="Sammelt 15 Giftproben aus Silithus und bringt sie zusammen mit 20 Gold und einem Paar Bindungen des Magisters zu Mokvar in Orgrimmar zurück."}
+t[84158]={o="Sammelt 15 Giftproben aus Silithus und bringt sie zusammen mit 20 Gold und einem Paar Armschienen des Gläubigen zu Mokvar in Orgrimmar zurück."}
 t[84159]={o="Sammelt 15 Giftproben aus Silithus und bringt sie zusammen mit 20 Gold und einem Paar Armschienen der Schattenkunst zu Mokvar in Orgrimmar zurück."}
 t[8416]={d="Das Böse wurde aus diesen Steinen getrieben, $n.$b$bIch weiß über Kommandant Ashlams Pläne Bescheid, er wird nur nach einem einzigen, gereinigten Geißelstein verlangen. Bringt ihn zu ihm, damit wir die Geißel ins Feuer der Gerechtigkeit tauchen können.",o="Bringt den gereinigten Geißelstein zu Kommandant Ashlan Valorfist an der Chillwindspitze."}
 t[84160]={o="Sammelt 15 Giftproben aus Silithus und bringt sie zusammen mit 20 Gold und einem Paar Bindungen der Elemente zu Mokvar in Orgrimmar zurück."}
@@ -1613,9 +1614,11 @@ t[84161]={o="Sammelt 15 Giftproben aus Silithus und bringt sie zusammen mit 20 G
 t[84162]={o="Sammelt 15 Giftproben aus Silithus und bringt es zusammen mit 20 Gold und einem Paar Armschienen der Ehre zu Mokvar in Orgrimmar zurück."}
 t[84163]={o="Bringt Deliana in Ironforge einen Gürtel des Wildherzens und ein Paar Handschuhe des Wildherzens."}
 t[84166]={o="Bringt Deliana in Ironforge einen Gürtel des Lichts und ein Paar Stulpen des Lichts."}
+t[84167]={o="Bringt Deliana in Ironforge einen Gürtel des Gläubigen und ein Paar Handschuhe des Gläubigen."}
 t[84168]={o="Bringt Deliana in Ironforge einen Gürtel der Schattenkunst und ein Paar Handschuhe der Schattenkunst."}
 t[8417]={d="In den Verwüsteten Landen gibt es einen geplagten Geist, der einst ein großer Held der Horde war. Die Ehre eines Kriegers stirbt nicht mit seinem Körper und es würde für Euch von Wert sein mit ihm zu sprechen.",o="Sprecht mit dem gefallenen Helden der Horde am Eingang zu den verwüsteten Landen."}
 t[84171]={o="Bringt Mokvar in Orgrimmar einen Gürtel des Wildherzens und ein Paar Handschuhe des Wildherzens."}
+t[84173]={o="Bringt Mokvar in Orgrimmar einen Gürtel des Magisters und ein Paar Handschuhe des Magisters."}
 t[84176]={o="Bringt Mokvar in Orgrimmar eine Kordel der Elemente und ein Paar Stulpen der Elemente."}
 t[84178]={o="Bringt Mokvar in Orgrimmar einen Gürtel der Ehre und ein Paar Stulpen der Ehre."}
 t[8418]={d="Jetzt müssen wir die gereinigten Geißelsteine kombinieren und eine Waffe herstellen, die die Reihen der Untoten erschüttert. Das ist keine einfache Aufgabe, $n. Nur die Trolle des Versunkenen Tempels besitzen diese Art seltener Magie, die fähig ist, das Böse von etwas gegen sich selbst zu richten.$b$bIm Tempel sind die Trolle bekannt als Schlitzer, Mijan, Zolo, Hukku, Zul'lor und Loro. Verspürt keine Reue für ihre verderbten Seelen... sie sind nicht frei von Bösem.",o="Bringt die Voodoofedern zu Ashlam Valorfist."}
@@ -2195,6 +2198,7 @@ t[9075]={d="Würdet Ihr mir die Ehre erweisen und mir die Rüstungen derer bring
 t[90750]={o="Sprecht mit dem Bauern und lasst ihn wissen, dass seine Arbeit erledigt ist."}
 t[9077]={d="Wenn Ihr etwas von der Knochensensenrüstung wollt, dann werdet Ihr die Materialien dafür auftreiben müssen.$B$BGeht nach Naxxramas, der schwebenden Metropole des Todes, hier oben im Himmel, und sucht nach entweihter Rüstung sowie kampfzerschlissenen Rüstungsstücken. Bringt alles mitsamt der Materialien zum Zusammenfügen zurück und Ihr bekommt Eure Knochensensenrüstung. Oh, Ihr werdet mich natürlich auch für meine Mühen entschädigen müssen... Ich stelle die Knochen zur Verfügung.",o="Rohan der Assassine bei der Kapelle des Hoffnungsvollen Lichts in den Östlichen Pestländern wird für Euch eine Brustplatte der Knochensense anfertigen, wenn Ihr ihm folgende Gegenstände bringt: 1 entweihte Brustplatte, 25 kampfzerschlissene Lederstücke, 2 Arkanitbarren und 6 geschmeidige unverwüstliche Bälge."}
 t[9078]={d="Wenn Ihr etwas von der Knochensensenrüstung wollt, dann werdet Ihr die Materialien dafür auftreiben müssen.$B$BGeht nach Naxxramas, der schwebenden Metropole des Todes, hier oben im Himmel, und sucht nach entweihter Rüstung sowie kampfzerschlissenen Rüstungsstücken. Bringt alles mitsamt der Materialien zum Zusammenfügen zurück und Ihr bekommt Eure Knochensensenrüstung. Oh, Ihr werdet mich natürlich auch für meine Mühen entschädigen müssen... Ich stelle die Knochen zur Verfügung.",o="Rohan der Assassine bei der Kapelle des Hoffnungsvollen Lichts in den Östlichen Pestländern wird für Euch Beinplatten der Knochensense anfertigen, wenn Ihr ihm folgende Gegenstände bringt: 1 Paar entweihte Beinplatten, 20 kampfzerschlissene Lederstücke, 1 Arkanitbarren, 8 geschmeidige unverwüstliche Bälge und 100 Goldstücke."}
+t[90789]={o="Beschafft die prismatische Muschel für Erzmagier Xylem. Der Erzmagier befindet sich in einem Turm auf den Klippen von Azshara."}
 t[9079]={d="Wenn Ihr etwas von der Knochensensenrüstung wollt, dann werdet Ihr die Materialien dafür auftreiben müssen.$B$BGeht nach Naxxramas, der schwebenden Metropole des Todes, hier oben im Himmel, und sucht nach entweihter Rüstung sowie kampfzerschlissenen Rüstungsstücken. Bringt alles mitsamt der Materialien zum Zusammenfügen zurück und Ihr bekommt Eure Knochensensenrüstung. Oh, Ihr werdet mich natürlich auch für meine Mühen entschädigen müssen... Ich stelle die Knochen zur Verfügung.",o="Rohan der Assassine bei der Kapelle des Hoffnungsvollen Lichts in den Östlichen Pestländern wird für Euch einen Helm der Knochensense anfertigen, wenn Ihr ihm folgende Gegenstände bringt: 1 entweihten Helm, 15 kampfzerschlissene Lederstücke, 8 geschmeidige unverwüstliche Bälge. 1 Nexuskristall und 75 Goldstücke."}
 t[908]={d="Die Twilight-Hammer sind in die Mondschreinruinen der Blackfathom-Tiefe eingezogen. Ihre Gegenwart kann nur dazu dienen, die Elemente gegen uns aufzubringen. Wenn dem kein Einhalt geboten wird, gehört ihnen diese Region bald ganz und gar.$B$B$N, geht nach Blackfathom und findet den Fathom-Stein der Ruinen. Er dürfte irgendwo in deren Nähe im Wasser liegen. Darin ist ein Fathom-Kern. Das ist ein Gerät, das, wenn man es richtig abliest, eine Aufstellung über alle Aktivitäten der Elementare liefert. Wenn ich es habe, können der Irdene Ring und ich vielleicht etwas tun, um sie aufzuhalten.",o="Bringt den Fathom-Kern zu Je'neu Sancrea im Zoram'gar-Außenposten in Ashenvale."}
 t[9080]={d="Wenn Ihr etwas von der Knochensensenrüstung wollt, dann werdet Ihr die Materialien dafür auftreiben müssen.$B$BGeht nach Naxxramas, der schwebenden Metropole des Todes, hier oben im Himmel, und sucht nach entweihter Rüstung sowie kampfzerschlissenen Rüstungsstücken. Bringt alles mitsamt der Materialien zum Zusammenfügen zurück und Ihr bekommt Eure Knochensensenrüstung. Oh, Ihr werdet mich natürlich auch für meine Mühen entschädigen müssen... Ich stelle die Knochen zur Verfügung.",o="Rohan der Assassine bei der Kapelle des Hoffnungsvollen Lichts in den Östlichen Pestländern wird für Euch Schulterstücke der Knochensense anfertigen, wenn Ihr ihm folgende Gegenstände bringt: 1 Paar entweihte Schulterstücke, 12 kampfzerschlissene Lederstücke, 5 geschmeidige unverwüstliche Bälge, 1 Nexuskristall und 50 Goldstücke."}
@@ -2872,6 +2876,7 @@ t[94341]={o="Besorgt die vom Kunden angeforderten Gegenstände und liefert sie a
 t[94342]={o="Besorgt die vom Kunden angeforderten Gegenstände und liefert sie an die auf Eurer Karte markierte Position. Dieses Schriftstück muss sich in Eurem Besitz befinden, um die Transaktion abzuschließen."}
 t[94343]={o="Besorgt die vom Kunden angeforderten Gegenstände und liefert sie an die auf Eurer Karte markierte Position. Dieses Schriftstück muss sich in Eurem Besitz befinden, um die Transaktion abzuschließen."}
 t[94344]={o="Besorgt die vom Kunden angeforderten Gegenstände und liefert sie an die auf Eurer Karte markierte Position. Dieses Schriftstück muss sich in Eurem Besitz befinden, um die Transaktion abzuschließen."}
+t[94345]={o="Besorgt die vom Kunden angeforderten Gegenstände und liefert sie an die auf Eurer Karte markierte Position. Dieses Schriftstück muss sich in Eurem Besitz befinden, um die Transaktion abzuschließen."}
 t[94346]={o="Besorgt die vom Kunden angeforderten Gegenstände und liefert sie an die auf Eurer Karte markierte Position. Dieses Schriftstück muss sich in Eurem Besitz befinden, um die Transaktion abzuschließen."}
 t[94347]={o="Besorgt die vom Kunden angeforderten Gegenstände und liefert sie an die auf Eurer Karte markierte Position. Dieses Schriftstück muss sich in Eurem Besitz befinden, um die Transaktion abzuschließen."}
 t[94348]={o="Besorgt die vom Kunden angeforderten Gegenstände und liefert sie an die auf Eurer Karte markierte Position. Dieses Schriftstück muss sich in Eurem Besitz befinden, um die Transaktion abzuschließen."}
@@ -3278,6 +3283,7 @@ t[96082]={o="Bandagiert 3 verwundete Soldaten für Bruder Lowley."}
 t[96083]={o="Sprecht mit Schwester Rowland in der Kapelle in Farholde."}
 t[96084]={o="Sammelt für Schwester Rowland in der Kapelle in Farholde eine Probe des Trinkwassers aus den Ebenen."}
 t[96085]={o="Findet die Kreatur, die das Trinkwasser kontaminiert, und beseitigt sie. Kehrt dann zu Schwester Rowland in der Kapelle in Farholde zurück."}
+t[96088]={o="Holt Yseras Träne von Eranikus' Schemen im Versunkenen Tempel, ein Mal von Xavius von Varrox Bleakhoof in der Schwarzschlundfeste und Freyas Siegel von Nanaya auf der Terrasse des Formers. Bringt die Relikte dann Pix Xizzix in Booty Bay."}
 t[96101]={o="Setzt Euch an Raans einfaches Lagerfeuer und wartet, bis Ihr den verbesserten Ruhebonus erhalten habt."}
 t[96102]={o="Geht nach Orgrimmar und sprecht mit Snang, um zu lernen, wie Ihr einen Lagergegenstand für Euren Beruf herstellt, nachdem Ihr Euer Geschick in Eurer Fertigkeit unter Beweis gestellt habt."}
 t[96103]={o="Bringt den abgeknabberten Schädel zu Neza Bloodsnout in Rog'mar."}
@@ -3413,6 +3419,8 @@ t[96899]={o="Trefft Leonid Barthalomew in der Bandarionfestung in Tirisfal."}
 t[969]={d="Ah, ich seh's Euch direkt an: Ihr möchtet, dass ich Euch einen Glücksbringer anfertige. Mau'ari weiß immer Bescheid!$B$BIm Süden, findet Ihr eine Schlucht und Riesen, die komplett aus Eis bestehen. Die Riesen tragen die Splitter manchmal bei sich, aber Ihr könnt sie auch selbst in der Schlucht sammeln. Diese Splitter haben mächtige reflektierende Eigenschaften.$B$BBringt mir 10 Frosthagelsplitter und mein Glücksbringer wird Euch gehören.",o="Sammelt 10 Frosthagelsplitter für die Hexendoktorin Mau'ari in Everlook."}
 t[96912]={o="Gewinnt 10 Duelle."}
 t[96913]={o="Schließt 3 Schlachten in der Warsongschlucht ab."}
+t[96914]={o="Tötet 25 Spielercharaktere der gegnerischen Fraktion in der Warsongschlucht."}
+t[96915]={o="Schließt 3 Schlachten im Arathibecken ab."}
 t[96930]={o="Kehrt zur seltsamen Krähe zurück."}
 t[96931]={o="Berührt das Krähenbildnis auf der Brücke über der Wiege der Ruhe, um die Wilde Göttin Jereman zu rufen."}
 t[96939]={o="Sprecht mit dem wilden Gott, Marrosis."}
@@ -3804,6 +3812,7 @@ t[99202]={o="Erlernt die Fähigkeit \"Geübtes Reiten\" von Kar Stormsinger."}
 t[99204]={o="Erlernt die Fähigkeit \"Geübtes Reiten\" von Kildar."}
 t[99205]={o="Erlernt die Fähigkeit \"Geübtes Reiten\" von Jartsam."}
 t[99208]={o="Erlernt die Fähigkeit \"Geübtes Reiten\" von Velma Warnam."}
+t[99211]={o="Inspiziert die gepanzerten untoten Schlachtrösser, um Euer episches Reittier zu wählen."}
 t[99215]={o="Inspiziert die gepanzerten reitbaren Wölfe, um Euer episches Reittier zu wählen."}
 t[99233]={o="Sprecht mit Griniblix dem Beobachter oberhalb der Schlägergrube in Düsterbruch."}
 t[99257]={o="Tötet einen verfallenen Pylonenbeschützer, um sein erschöpftes Kristallherz zu erhalten, und bringt es zu Historiker Biraxas im Tempel von Shen'dralas."}
@@ -7408,9 +7417,11 @@ t[84161]="Ein aufrichtiges Angebot"
 t[84162]="Ein aufrichtiges Angebot"
 t[84163]="Die angemessene Entlohnung"
 t[84166]="Die angemessene Entlohnung"
+t[84167]="Die angemessene Entlohnung"
 t[84168]="Die angemessene Entlohnung"
 t[8417]="Ein geplagter Geist"
 t[84171]="Die angemessene Entlohnung"
+t[84173]="Die angemessene Entlohnung"
 t[84176]="Die angemessene Entlohnung"
 t[84178]="Die angemessene Entlohnung"
 t[8418]="Erschaffung des Steins der Macht"
@@ -8177,6 +8188,7 @@ t[9075]="Handgelenksschützer des Erdspalters"
 t[90750]="Noch mehr Arbeit?"
 t[9077]="Brustplatte der Knochensense"
 t[9078]="Beinplatten der Knochensense"
+t[90789]="Schuppenbart"
 t[9079]="Helm der Knochensense"
 t[908]="Inmitten der Ruinen"
 t[9080]="Schulterstücke der Knochensense"
@@ -9327,6 +9339,7 @@ t[96082]="Krankenpflege"
 t[96083]="Klerikale Quarantäne"
 t[96084]="Da ist was im Wasser"
 t[96085]="Kontamination im Fluss"
+t[96088]="Gefragt: Relikte der Titanen"
 t[961]="Onu meditiert"
 t[96101]="Die große weite Welt"
 t[96102]="Grundlagen des Zeltens: Schneiderei"
@@ -9469,6 +9482,8 @@ t[96899]="Die Bandarionfestung"
 t[969]="Das Glück sei mit Euch"
 t[96912]="Feld der Ehre: Woche 1"
 t[96913]="Feld der Ehre: Woche 2"
+t[96914]="Feld der Ehre: Woche 3"
+t[96915]="Feld der Ehre: Woche 4"
 t[96930]="Ein verschmitzter Vogel"
 t[96931]="Hoch oben auf dem Berg"
 t[96939]="Der Grat zwischen Leben und Tod"
@@ -9799,6 +9814,7 @@ t[98477]="Instabile Magie"
 t[985]="Wie groß ist die Bedrohung?"
 t[98512]="Auftragsmörder der Al'Aketh"
 t[98517]="Ruf des Feuers"
+t[98529]="Plunderkisten benötigt"
 t[98545]="Leonids Brief"
 t[98574]="Geheiligtes Memorandum"
 t[98575]="Besudelte Tafel"
@@ -9815,6 +9831,8 @@ t[98823]="Irdenes Echo"
 t[98824]="Prähistorisches Prisma"
 t[98887]="Konflikt auf den Darkspear-Inseln"
 t[98888]="Konflikt auf den Darkspear-Inseln"
+end)()
+;(function() if not W["deDE"] then return end local t = D.loc["deDE"]["quest"]
 t[98889]="Konflikt auf den Darkspear-Inseln"
 t[98890]="Konflikt auf den Darkspear-Inseln"
 t[98891]="Konflikt auf den Darkspear-Inseln"
@@ -9822,8 +9840,6 @@ t[98892]="Konflikt auf den Darkspear-Inseln"
 t[98893]="Konflikt auf den Darkspear-Inseln"
 t[98894]="Konflikt auf den Darkspear-Inseln"
 t[98895]="Kampf um die Darkspear-Inseln"
-end)()
-;(function() if not W["deDE"] then return end local t = D.loc["deDE"]["quest"]
 t[98896]="Kampf um die Darkspear-Inseln"
 t[98897]="Kampf um die Darkspear-Inseln"
 t[98898]="Kampf um die Darkspear-Inseln"
@@ -9889,6 +9905,7 @@ t[99202]="Schnell wie der Wind"
 t[99204]="Schnell wie der Wind"
 t[99205]="Schnell wie der Wind"
 t[99208]="Schnell wie der Wind"
+t[99211]="Eine epische Fortbewegungsmethode"
 t[99215]="Eine epische Fortbewegungsmethode"
 t[99233]="Prügelei in Düsterbruch"
 t[99257]="Ein Herz aus Kristall"

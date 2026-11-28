@@ -1501,6 +1501,7 @@ t[84198]={o="Give Deliana your Lightforge Helm and Lightforge Breastplate."}
 t[84200]={o="Give Deliana your Shadowcraft Cap and Shadowcraft Tunic."}
 t[84202]={o="Give Deliana your Helm of Valor and Breastplate of Valor."}
 t[84203]={o="Give Mokvar your Wildheart Cowl and Wildheart Vest."}
+t[84204]={o="Give Mokvar your Beaststalker's Cap and Beaststalker's Tunic."}
 t[84208]={o="Give Mokvar your Coif of Elements and Vest of Elements."}
 t[84210]={o="Give Mokvar your Helm of Valor and Breastplate of Valor."}
 t[84211]={o="Recover the rest of the materials and return to Nami in Everlook."}
@@ -2471,6 +2472,7 @@ t[96082]={o="Bandage up 3 Wounded Soldiers for Brother Lowley."}
 t[96083]={o="Speak to Sister Rowland at the chapel in Farholde Keep."}
 t[96084]={o="Collect a sample of drinking water from the plains for Sister Rowland at the chapel in Farholde Keep."}
 t[96085]={o="Find whatever creature is causing the drinking water contamination and eliminate it. Then, return to Sister Rowland at the chapel in Farholde Keep."}
+t[96088]={o="Acquire Ysera's Tear from the Shade of Eranikus in the Sunken Temple, a Mark of Xavius from Varrox Bleakhoof in Blackmaw Hold, and Freya's Sigil from Nanaya in the Shaper's Terrace, and bring them to Pix Xizzix in Booty Bay."}
 t[96101]={o="Sit near Raan's Basic Campfire and wait until you receive the Boosted Rest buff."}
 t[96102]={o="Speak with Snang in Orgrimmar to learn to craft a camping item for your profession once you have shown proficiency in your skill."}
 t[96103]={o="Bring the Gnawed Skull to Neza Bloodsnout at Rog'mar."}
@@ -2718,6 +2720,7 @@ t[97420]={o="Acquire 4 Drums of Crude Oil from the Venture Co. operations at Lak
 t[97446]={o="Inspect the riding kodos to choose your first mount."}
 t[97447]={o="Acquire 15 Winterspring Blood Samples and 20 gold and bring them along with a set of Bindings of the Elements to Deliana in Ironforge."}
 t[97448]={o="Bring a Cord of the Elements and a set of Gauntlets of the Elements to Deliana in Ironforge."}
+t[97449]={o="Return to Deliana in Ironforge with a set of Boots of Elements, Kilt of Elements and Pauldrons of Elements."}
 t[97453]={o="Slay 6 Carnivorous Weeds south of Grom'gol and then inform Gemmil's mother."}
 t[97485]={o="Purchase a Bundle of Herbs from Nida the herbalist, a Bundle of Cedar Twigs from Nata the enchanting supplier, and Sinew Thread from Mahu the leatherworking supplier and Ceremonial Flint and Tinder from Naal the cooking supplier. Combine the items and sprinkle the incense off of Hunter's Rise."}
 t[97490]={o="Search the southern hills of Winterspring for the giant known as Hailspite and recover the frost moss that grows upon him."}
